@@ -4,9 +4,9 @@ import {
   ProfileContainer,
   ProfileInfo,
 } from './styles';
-import linkedinIcon from '../../assets/linkedin.svg';
-import githubIcon from '../../assets/github.svg';
-import mailIcon from '../../assets/mail.svg';
+import linkedinIcon from '../../../public/linkedin.svg';
+import githubIcon from '../../../public/github.svg';
+import mailIcon from '../../../public/mail.svg';
 
 export function Profile() {
   return (

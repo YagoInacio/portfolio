@@ -19,6 +19,11 @@ export const HeaderContent = styled.div`
   justify-content: right;
   align-items: center;
 
+  img {
+    width: 10rem;
+    height: auto;
+  }
+
   @media (max-width: 1375px) {
     margin-left: 1rem;
     padding-right: 1rem;
