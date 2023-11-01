@@ -61,11 +61,11 @@ export function Home() {
               <Tag label="Python" />
               <Tag label="Redis" />
               <Tag label="Azure" />
+              <Tag label="Code Design" />
               <Tag label="Nginx" />
               <Tag label="JestJS" />
               <Tag label="DDD" />
               <Tag label="SOLID" />
-              <Tag label="Code Design" />
               <Tag label="Data Structures" />
             </SummaryTags>
           </SummaryCard>

@@ -26,7 +26,7 @@ export const SummaryContainer = styled.section`
   padding: 1.5rem 0;
 
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 1.5rem;
 `;
 
