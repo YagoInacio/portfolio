@@ -54,6 +54,7 @@ export function Home() {
               <Tag label="NestJS" />
               <Tag label="Kafka" />
               <Tag label="CI/CD" />
+              <Tag label="REST APIs" />
               <Tag label="ReactJS" />
               <Tag label="Prometheus" />
               <Tag label="Grafana" />
@@ -61,6 +62,11 @@ export function Home() {
               <Tag label="Redis" />
               <Tag label="Azure" />
               <Tag label="Nginx" />
+              <Tag label="JestJS" />
+              <Tag label="DDD" />
+              <Tag label="SOLID" />
+              <Tag label="Code Design" />
+              <Tag label="Data Structures" />
             </SummaryTags>
           </SummaryCard>
         </SummaryContainer>
