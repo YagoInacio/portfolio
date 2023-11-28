@@ -12,6 +12,7 @@ const config: Config = {
       current: 'currentColor',
       brand: {
         '800': '#1F2335',
+        '700': '#24283b',
         '600': '#353949',
         'text': '#B1C2EF',
         'gray': '#59606d',
