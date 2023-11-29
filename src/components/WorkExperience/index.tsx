@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExperienceCard } from '../ExperienceCard'
 import { experiences } from '../../assets/experiences'
@@ -7,6 +7,50 @@ import { experiences } from '../../assets/experiences'
 type Props = {}
 
 export function WorkExperience({}: Props) {
+  const scrollContainer = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    const container = scrollContainer.current;
+    if (!container) {
+      return;
+    }
+
+    const scrollLeft = container.scrollLeft;
+    const itemWidth = container.offsetWidth / experiences.length;
+    const centeredItemIndex = Math.round(scrollLeft / itemWidth);
+
+    experiences.forEach((item, index) => {
+      const opacity = index === centeredItemIndex ? 1 : 0.4;
+      const element = document.getElementById(`item-${index}`);
+      if (element) {
+        element.style.opacity = opacity.toString();
+      }
+    });
+  };
+
+  const debounce = (func: () => void, delay: number) => {
+    let timeoutId: NodeJS.Timeout;
+    return () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(func, delay);
+    };
+  };
+
+  const debouncedScroll = debounce(handleScroll, 200);
+
+  useEffect(() => {
+    const container = scrollContainer.current;
+    if (container) {
+      container.addEventListener('scroll', debouncedScroll);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('scroll', debouncedScroll);
+      }
+    };
+  }, [debouncedScroll]);
+
   return (
     <motion.div
       initial={{ opacity: 0, }}
@@ -19,11 +63,15 @@ export function WorkExperience({}: Props) {
         Experience
       </h3>
 
-      <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory">
-        {experiences.map((xp) => {
+      <div
+        className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory"
+        ref={scrollContainer}
+      >
+        {experiences.map((xp, idx) => {
           return (
             <ExperienceCard
               key={xp.id}
+              id={`item-${idx}`}
               company={xp.company}
               logo={xp.logo}
               period={xp.period}
