@@ -1,3 +1,4 @@
+'use client'
 import { About } from "@/components/About";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -5,6 +6,9 @@ import { Portfolio } from "@/components/Portfolio";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { WorkExperience } from "@/components/WorkExperience";
+import { CaretUp } from "@phosphor-icons/react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -37,7 +41,19 @@ export default function Home() {
 
       <section id="portfolio" className="snap-center">
         <Portfolio />
-      </section>      
+      </section>
+
+      <Link href="#hero">
+        <footer className="sticky bottom-5 w-full cursor-pointer">
+          <div className="flex items-center justify-center">
+            <CaretUp
+              className="
+                h-10 w-10 bg-brand-700 rounded-full filter grayscale-0 hover:grayscale items-center justify-center
+              "
+            />
+          </div>
+        </footer>
+      </Link>
     </main>
   )
 }

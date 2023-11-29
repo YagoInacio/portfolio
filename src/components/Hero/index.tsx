@@ -32,7 +32,7 @@ export function Hero({}: Props) {
           <Cursor cursorColor='#4198b7'/>
         </h1>
 
-        <div className="pt-5">
+        <nav className="pt-5">
           <Link href="#about">
             <button className="heroButton">About</button>
           </Link>
@@ -45,7 +45,10 @@ export function Hero({}: Props) {
           <Link href="#projects">
             <button className="heroButton">Projects</button>
           </Link>
-        </div>
+          <Link href="#portfolio">
+            <button className="heroButton">Portfolio</button>
+          </Link>
+        </nav>
       </div>
     </div>
   )
