@@ -22,7 +22,8 @@ export function ExperienceCard({
       id={id}
       className={`
         flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
-        w-[500px] md:w-[600px] xl:w-[900px] snap-center overflow-hidden max-h-[70vh] xl:max-h-[60vh] overflow-y-scroll
+        w-[500px] md:w-[600px] xl:w-[900px] snap-center overflow-hidden max-h-[70vh] xl:max-h-[60vh]
+        overflow-y-scroll scrollbar-thin scrollbar-track-brand-700 scrollbar-thumb-brand-text/20
         bg-brand-700 p-10 ${id === 'item-0' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-200
       `}
     >

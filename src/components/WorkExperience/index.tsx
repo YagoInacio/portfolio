@@ -64,7 +64,10 @@ export function WorkExperience({}: Props) {
       </h3>
 
       <div
-        className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory"
+        className="
+          w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory
+          scrollbar-thin scrollbar-track-brand-700 scrollbar-thumb-brand-text/20
+        "
         ref={scrollContainer}
       >
         {experiences.map((xp, idx) => {
