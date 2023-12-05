@@ -19,7 +19,7 @@ export function Hero({}: Props) {
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
       <Image
-        src="/logo.svg"
+        src="https://portfolio.yagofaran.dev/api/images/logo.svg"
         alt="Yago Faran Logo"
         width={400}
         height={240}
