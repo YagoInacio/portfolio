@@ -2,11 +2,13 @@
 import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ExperienceCard } from '../ExperienceCard'
-import { experiences } from '../../assets/experiences'
+import { Experience } from '@/typings/schemas'
 
-type Props = {}
+type Props = {
+  experiences: Experience[]
+}
 
-export function WorkExperience({}: Props) {
+export function WorkExperience({ experiences }: Props) {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {

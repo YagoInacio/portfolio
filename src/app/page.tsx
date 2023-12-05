@@ -1,4 +1,3 @@
-'use client'
 import { About } from "@/components/About";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -6,11 +5,11 @@ import { Portfolio } from "@/components/Portfolio";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { WorkExperience } from "@/components/WorkExperience";
-import { CaretUp } from "@phosphor-icons/react";
-import Image from "next/image";
-import Link from "next/link";
+import { fetchExperiences } from "@/fetchers/experiencesFetcher";
 
-export default function Home() {
+export default async  function Home() {
+  const experiences = await fetchExperiences()
+
   return (
     <main className="
       h-screen snap-y snap-mandatory overflow-scroll z-0
@@ -28,7 +27,7 @@ export default function Home() {
       </section>
 
       <section id="experience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
 
       <section id="skills" className="snap-start">
@@ -43,7 +42,7 @@ export default function Home() {
         <Portfolio />
       </section>
 
-      <Link href="#hero">
+      {/* <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
             <CaretUp
@@ -53,7 +52,7 @@ export default function Home() {
             />
           </div>
         </footer>
-      </Link>
+      </Link> */}
     </main>
   )
 }

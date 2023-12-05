@@ -1,16 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { dateFormatter } from '@/utils/dateFormatter'
+import { Experience } from '@/typings/schemas'
 
-type Props = {
-  id: string;
-  position: string;
-  company: string;
-  logo: string;
-  period: string;
-  summary: string[];
-  techs: string[];
-}
+type Props = Experience
 
 export function ExperienceCard({
   id, position, company, logo, period, summary, techs
@@ -39,8 +33,8 @@ export function ExperienceCard({
         }}
         viewport={{ once: true, }}
         className="w-24 h-24 rounded-full object-cover object-center"
-        src={logo}
-        alt="company logo"
+        src={`${process.env.NEXT_PUBLIC_PORTFOLIO_API}/images/${logo}`}
+        alt={`${company} logo`}
         width={200}
         height={200}
       />
@@ -49,36 +43,25 @@ export function ExperienceCard({
         <h4 className="text-3xl font-light">{position}</h4>
         <p className="font-bold text-xl mt-1">{company}</p>
         <div className="flex space-x-2 my-2">
-          <Image
-            className="h-10 w-10 rounded-full"
-            src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-            alt="Technology logo"
-            width={500}
-            height={500}
-          />
-          <Image
-            className="h-10 w-10 rounded-full"
-            src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-            alt="Technology logo"
-            width={500}
-            height={500}
-          />
-          <Image
-            className="h-10 w-10 rounded-full"
-            src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-            alt="Technology logo"
-            width={500}
-            height={500}
-          />
-          <Image
-            className="h-10 w-10 rounded-full"
-            src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-            alt="Technology logo"
-            width={500}
-            height={500}
-          />
+          {techs.map((tech) => {
+            return (
+              <div key={tech.id} className="group h-8 w-8 rounded-full items-center relative inline-block">
+                <Image
+                  className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2"
+                  src={`${process.env.NEXT_PUBLIC_PORTFOLIO_API}/images/icons/${tech.src}`}
+                  alt={tech.name}
+                  width={500}
+                  height={500}
+                />
+                <div className="absolute top-[-120%] -translate-x-1/4 bg-brand-gray/90 px-2 py-1 rounded
+                  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition whitespace-nowrap">
+                  {tech.name}
+                </div>
+              </div>
+            )
+          })}
         </div>
-        <p className="uppercase py-5 text-brand-gray">{period}</p>
+        <p className="uppercase py-5 text-brand-gray">{`${dateFormatter(period.start)} - ${dateFormatter(period.end)}`}</p>
 
         <ul className="list-disc space-y-4 ml-5 text-md">
           {summary.map((sum, idx) => {
