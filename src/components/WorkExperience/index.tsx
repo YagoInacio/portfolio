@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ExperienceCard } from '../ExperienceCard'
 import { experiences } from '../../assets/experiences'
