@@ -36,8 +36,8 @@ This project serves as a personal web page, acting as an interactive and compreh
 ## 🛠 Tech Stack
 
 -   **[NextJS](https://nextjs.org)**
--   **[Framer Motion](https://www.framer.com/motion/)**
 -   **[Tailwind CSS](https://tailwindcss.com)**
+-   **[Framer Motion](https://www.framer.com/motion/)**
 
 ## ✨ Features
 
