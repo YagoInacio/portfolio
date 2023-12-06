@@ -43,9 +43,9 @@ export default async  function Home() {
         <Projects projects={projects} />
       </section>
 
-      <section id="portfolio" className="snap-center">
+      {/* <section id="portfolio" className="snap-center">
         <Portfolio />
-      </section>
+      </section> */}
 
       <Footer />
     </main>
