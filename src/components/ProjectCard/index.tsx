@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Project } from '@/typings/schemas'
+import { motion } from 'framer-motion'
 
 type Props = Project
 
@@ -25,7 +26,18 @@ export function ProjectCard({
         <div className="flex space-x-2 my-2">
           {techs.map((tech) => {
               return (
-                <div key={tech.id} className="group h-8 w-8 rounded-full items-center relative inline-block">
+                <motion.div
+                  initial={{
+                    y: -100,
+                    opacity: 0,
+                  }}
+                  transition={{ duration: 1.2, }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                  }}
+                  key={tech.id}
+                  className="group h-8 w-8 rounded-full items-center relative inline-block">
                   <Image
                     className="h-8 w-8 object-contain absolute inset-1/2 -translate-x-1/2 -translate-y-1/2"
                     src={`${process.env.NEXT_PUBLIC_PORTFOLIO_API}/images/icons/${tech.src}`}
@@ -37,7 +49,7 @@ export function ProjectCard({
                     opacity-0 invisible group-hover:opacity-100 group-hover:visible transition whitespace-nowrap">
                     {tech.name}
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>
