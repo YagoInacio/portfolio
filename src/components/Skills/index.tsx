@@ -21,7 +21,7 @@ export function Skills({ skills }: Props) {
         Skills
       </h3>
 
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-5">
         {skills.map((skill, idx) => {
           return (
             <Skill
