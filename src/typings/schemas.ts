@@ -16,3 +16,10 @@ export interface Experience {
   summary: string[];
   techs: Technology[];
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string[];
+  techs: Technology[];
+}

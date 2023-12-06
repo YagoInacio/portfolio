@@ -1,17 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
+import { Project } from '@/typings/schemas'
 
-type Props = {
-  id: string;
-  title: string;
-  description: string[];
-  techs: string[];
-}
+type Props = Project
 
 export function ProjectCard({
   id,
   title,
   description,
+  techs,
 }: Props) {
   return (
     <article
@@ -23,37 +20,26 @@ export function ProjectCard({
         bg-brand-700 p-10 ${id === 'item-0' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-200
       `}
     >
-      <div className="px-0 md:px-5 xl:px-10">
+      <div className="px-0 md:px-5 xl:px-10 w-full">
         <h4 className="text-3xl font-light">{title}</h4>
         <div className="flex space-x-2 my-2">
-            <Image
-              className="h-10 w-10 rounded-full"
-              src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-              alt="Technology logo"
-              width={500}
-              height={500}
-            />
-            <Image
-              className="h-10 w-10 rounded-full"
-              src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-              alt="Technology logo"
-              width={500}
-              height={500}
-            />
-            <Image
-              className="h-10 w-10 rounded-full"
-              src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-              alt="Technology logo"
-              width={500}
-              height={500}
-            />
-            <Image
-              className="h-10 w-10 rounded-full"
-              src="https://cdn.sanity.io/images/ltuexkre/production/fa5e6eeb3377a1601e181d0eeb9a60633090cff2-500x500.png"
-              alt="Technology logo"
-              width={500}
-              height={500}
-            />
+          {techs.map((tech) => {
+              return (
+                <div key={tech.id} className="group h-8 w-8 rounded-full items-center relative inline-block">
+                  <Image
+                    className="h-8 w-8 object-contain absolute inset-1/2 -translate-x-1/2 -translate-y-1/2"
+                    src={`${process.env.NEXT_PUBLIC_PORTFOLIO_API}/images/icons/${tech.src}`}
+                    alt={tech.name}
+                    width={500}
+                    height={500}
+                  />
+                  <div className="absolute top-[-120%] -translate-x-1/4 bg-brand-gray/90 px-2 py-1 rounded
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition whitespace-nowrap">
+                    {tech.name}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 

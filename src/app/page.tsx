@@ -6,11 +6,13 @@ import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { WorkExperience } from "@/components/WorkExperience";
 import { fetchExperiences } from "@/fetchers/experiencesFetcher";
+import { fetchProjects } from "@/fetchers/projectsFetcher";
 import { fetchSkills } from "@/fetchers/skillsFetcher";
 
 export default async  function Home() {
   const experiences = await fetchExperiences()
   const skills = await fetchSkills()
+  const projects = await fetchProjects()
 
   return (
     <main className="
@@ -37,7 +39,7 @@ export default async  function Home() {
       </section>
 
       <section id="projects" className="snap-center">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="portfolio" className="snap-center">

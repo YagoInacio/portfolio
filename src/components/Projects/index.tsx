@@ -1,10 +1,13 @@
+'use client'
 import React, { useEffect, useRef } from 'react'
-import { projects } from '../../assets/projects'
 import { ProjectCard } from '../ProjectCard';
+import { Project } from '@/typings/schemas';
 
-type Props = {}
+type Props = {
+  projects: Project[];
+}
 
-export function Projects({}: Props) {
+export function Projects({ projects }: Props) {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -71,7 +74,7 @@ export function Projects({}: Props) {
               id={`item-${idx}`}
               title={project.title}
               description={project.description}
-              techs={project.tags}
+              techs={project.techs}
             />
           )
         })}
