@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Portfolio } from "@/components/Portfolio";
@@ -16,7 +17,7 @@ export default async  function Home() {
 
   return (
     <main className="
-      h-screen snap-y snap-mandatory overflow-scroll z-0
+      h-screen snap-y snap-mandatory overflow-y-scroll z-0
       scrollbar scrollbar-track-brand-700 scrollbar-thumb-brand-text/20
     ">
 
@@ -46,17 +47,7 @@ export default async  function Home() {
         <Portfolio />
       </section>
 
-      {/* <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
-          <div className="flex items-center justify-center">
-            <CaretUp
-              className="
-                h-10 w-10 bg-brand-700 rounded-full filter grayscale-0 hover:grayscale items-center justify-center
-              "
-            />
-          </div>
-        </footer>
-      </Link> */}
+      <Footer />
     </main>
   )
 }
