@@ -37,7 +37,7 @@ export function About({}: Props) {
         viewport={{
           once: true,
         }}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover
+        className="-mb-20 md:mb-0 flex-shrink-0 w-40 h-40 rounded-full object-cover
           md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
         src="https://portfolio.yagofaran.dev/api/images/avatar.jpg"
         alt="Yago's avatar'"
@@ -46,11 +46,11 @@ export function About({}: Props) {
         priority
       />
 
-      <div className="space-y-10 px-0 md:px-10">
-        <h4 className="text-3xl font-semibold">
+      <div className="space-y-5 md:space-y-10 px-0 md:px-10">
+        <h4 className="text-2xl md:text-3xl font-semibold">
           Here is a <span className="underline decoration-brand-light-blue/50">little</span> background
         </h4>
-        <p className="text-sm">
+        <p className="text-sm md:text-lg">
           Hello, I'm Yago! A passionate Software Engineer with over 4 years of experience dedicated to crafting innovative solutions for diverse industries.
           Skilled in designing and implementing systems to integrate data from various sources based on IoT technologies and devices.
           I specialize in developing robust systems using technologies such as Node, Typescript/Javascript, and PostgreSQL.
